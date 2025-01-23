@@ -30,6 +30,7 @@ def find_min_bst(root: Node) -> Node:
     find the appropriate node to be deleted, once found: 
         - if node has 1 or 0 children: asign the node parent(caller) the deleted node's child
         - if node has 2 childrens: assign the smallest value in the sub tree then delete the that node
+    the worse case is removing the root which would impose a 2 tree hight traversal, each of O(log n) time complexity ==> O(2 * log n) == O(log n)
 """
 def remove_node_bst(root: Optional[Node], num: int) -> None:
     if not root:
@@ -41,12 +42,16 @@ def remove_node_bst(root: Optional[Node], num: int) -> None:
         root.left = remove_node_bst(root.left, num)
     else:
         if root.left and root.right:
+            return None
+        elif not root.left:
+            return root.right
+        elif not root.right:
+            return root.left
+        else:
             inorder_successor = find_min_bst(root.right)
             print(inorder_successor.value)
             root.value = inorder_successor.value
             root.right = remove_node_bst(root.right, inorder_successor.value)
-        else:
-            return root.right or root.left
     return root
 
 def display_bst_level_by_level(root: Optional[Node]) -> None:
