@@ -49,7 +49,6 @@ def remove_node_bst(root: Optional[Node], num: int) -> None:
             return root.left
         else:
             inorder_successor = find_min_bst(root.right)
-            print(inorder_successor.value)
             root.value = inorder_successor.value
             root.right = remove_node_bst(root.right, inorder_successor.value)
     return root
