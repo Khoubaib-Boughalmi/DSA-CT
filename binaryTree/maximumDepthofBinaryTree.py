@@ -29,6 +29,15 @@ def pathSum_two(root: Optional[Node], target: int):
         return _pathSum_two(root.left, current_sum) or _pathSum_two(root.right, current_sum) 
     return _pathSum_two(root, 0)
     
+# def isValidBST(self, root: Optional[TreeNode]) -> bool:
+#     if not root:
+#         return True
+#     if root.left and root.left.val >= root.val:
+#             return False
+#     elif root.right and root.right.val <= root.val:
+#             return False
+#     return self.isValidBST(root.left) and self.isValidBST(root.right)
+        
 def main():
     binaryTree = BinaryTree()
 

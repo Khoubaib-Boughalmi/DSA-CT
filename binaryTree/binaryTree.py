@@ -18,6 +18,13 @@ class Node:
     The space complexity of a BFS depends on the width of the tree
 '''
 
+# Definition for a binary tree node.
+# class Node:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
 class BinaryTree:
     def create_binary_tree_alpha(self) -> "Node":
         a = Node("a")
