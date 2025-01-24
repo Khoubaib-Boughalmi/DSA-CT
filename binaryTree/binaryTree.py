@@ -1,7 +1,8 @@
 from collections import deque
+from typing import Optional
 
 class Node:
-    def __init__(self, value) -> None:
+    def __init__(self, value) -> None   :
         self.value: str= value
         self.left: "Node" | None = None
         self.right: "Node" | None = None
@@ -18,13 +19,29 @@ class Node:
 '''
 
 class BinaryTree:
-    def create_binary_tree(self) -> "Node":
+    def create_binary_tree_alpha(self) -> "Node":
         a = Node("a")
         b = Node("b")
         c = Node("c")
         d = Node("d")
         e = Node("e")
         f = Node("f")
+
+        a.left = b
+        a.right = c
+        b.left = d
+        b.right = e
+        c.right = f
+
+        return a
+
+    def create_binary_tree_num(self) -> "Node":
+        a = Node(1)
+        b = Node(2)
+        c = Node(3)
+        d = Node(4)
+        e = Node(5)
+        f = Node(6)
 
         a.left = b
         a.right = c
@@ -130,5 +147,17 @@ class BinaryTree:
             result.append(level)
         return result
 
+    def sum_nodes_val(self, root: Optional[Node]) -> int:
+        if not root:
+            return 0
+        
+        return root.value + self.sum_nodes_val(root.left) + self.sum_nodes_val(root.right)
+    
+    def max_node_val(self, root: Optional[Node]) -> int:
+        if not root:
+            return float("-inf")
+    
+        max_left = self.max_node_val(root.left)
+        max_right = self.max_node_val(root.right)
 
-
+        return max(root.value, max_left, max_right)

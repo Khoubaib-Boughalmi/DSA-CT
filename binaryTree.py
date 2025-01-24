@@ -1,4 +1,5 @@
 from collections import deque
+from typing import Union
 
 class Node:
     def __init__(self, value) -> None:
@@ -18,7 +19,9 @@ class Node:
 '''
 
 class BinaryTree:
-    def create_binary_tree(self) -> "Node":
+    def hey():
+        pass
+    def create_binary_tree_alpha(self) -> "Node":
         a = Node("a")
         b = Node("b")
         c = Node("c")
@@ -33,6 +36,30 @@ class BinaryTree:
         c.right = f
 
         return a
+
+
+#       1
+#      / \
+#     2   3
+#    / \   \
+#   4   5   6
+    
+    def create_binary_tree_num(self) -> "Node":
+        a = Node(1)
+        b = Node(2)
+        c = Node(3)
+        d = Node(4)
+        e = Node(5)
+        f = Node(6)
+
+        a.left = b
+        a.right = c
+        b.left = d
+        b.right = e
+        c.right = f
+
+        return a
+        
         
     def depth_first_traversal_rec(self, root: "Node") -> None:
         if not root:
